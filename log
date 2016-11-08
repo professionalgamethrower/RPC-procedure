@@ -1,0 +1,132 @@
+call msg sending: call f0 3 0 1 3 0 1 0 3 0 1 0 3 0
+msg c_str: call f0 3 0 1 3 0 1 0 3 0 1 0 3 0
+call msg sent 33
+call waiting for msg 
+call receive msg call_success, ubuntu1404-004.student.cs.uwaterloo.ca, 58132
+CALL_SUCCESS
+ADDRESS: ubuntu1404-004.student.cs.uwaterloo.ca
+PORTNUM: 58132
+f0 3 0 1 3 0 1 0 3 0 1 0 3 0, 28
+0, 1, 3, 0
+32545
+1, 0, 3, 0
+5
+1, 0, 3, 0
+10
+f0 3 0 1 3 0 1 0 3 0 1 0 3 0 32545 5 10
+execute f0 3 0 1 3 0 1 0 3 0 1 0 3 0 32545 5 10 @
+waiting for recv
+execute_success f0 3 0 1 3 0 1 0 3 0 1 0 3 0 15 5 10
+0 1 3 0
+1 0 3 0
+1 0 3 0
+numOfArgs: 3
+in: 0 out: 1 type: 3 length: 0
+var: 15 15
+in: 1 out: 0 type: 3 length: 0
+var: 5 5
+in: 1 out: 0 type: 3 length: 0
+var: 10 10
+return value 0
+
+EXPECTED return of f0 is: 15
+ACTUAL return of f0 is: 15
+call msg sending: call f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0
+msg c_str: call f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0
+call msg sent 49
+call waiting for msg 
+call receive msg call_success, ubuntu1404-004.student.cs.uwaterloo.ca, 58132
+CALL_SUCCESS
+ADDRESS: ubuntu1404-004.student.cs.uwaterloo.ca
+PORTNUM: 58132
+f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0, 44
+0, 1, 4, 0
+140732557574687
+1, 0, 1, 0
+a
+1, 0, 2, 0
+100
+1, 0, 3, 0
+1000
+1, 0, 4, 0
+10000
+f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0 0 a 100 1000 10000
+execute f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0 0 a 100 1000 10000 @
+waiting for recv
+execute_success f1 5 0 1 4 0 1 0 1 0 1 0 2 0 1 0 3 0 1 0 4 0 90097 a 100 1000 10000
+0 1 4 0
+1 0 1 0
+1 0 2 0
+1 0 3 0
+1 0 4 0
+numOfArgs: 5
+in: 0 out: 1 type: 4 length: 0
+ var: 90097
+in: 1 out: 0 type: 1 length: 0
+var: a
+cArray at 0 a
+in: 1 out: 0 type: 2 length: 0
+var: 100
+in: 1 out: 0 type: 3 length: 0
+var: 1000 1000
+in: 1 out: 0 type: 4 length: 0
+ var: 10000
+return value 0
+
+EXPECTED return of f1 is: 90097
+ACTUAL return of f1 is: 90097
+call msg sending: call f3 1 1 1 4 11
+msg c_str: call f3 1 1 1 4 11
+call msg sent 18
+call waiting for msg 
+call receive msg call_success, ubuntu1404-004.student.cs.uwaterloo.ca, 58132
+CALL_SUCCESS
+ADDRESS: ubuntu1404-004.student.cs.uwaterloo.ca
+PORTNUM: 58132
+f3 1 1 1 4 11, 13
+1, 1, 4, 10
+11109107105103101102104106108110
+f3 1 1 1 4 11 11 109 107 105 103 101 102 104 106 108 110
+execute f3 1 1 1 4 11 11 109 107 105 103 101 102 104 106 108 110 @
+waiting for recv
+execute_success f3 1 1 1 4 11 110 109 108 107 106 105 104 103 102 101 11
+1 1 4 11
+numOfArgs: 1
+in: 1 out: 1 type: 4 length: 11
+ var: 110
+ var: 109
+ var: 108
+ var: 107
+ var: 106
+ var: 105
+ var: 104
+ var: 103
+ var: 102
+ var: 101
+ var: 11
+return value 0
+
+EXPECTED return of f3 is: 110 109 108 107 106 105 104 103 102 101 11
+ACTUAL return of f3 is:  110 109 108 107 106 105 104 103 102 101 11
+call msg sending: call f4 1 1 0 1 28
+msg c_str: call f4 1 1 0 1 28
+call msg sent 18
+call waiting for msg 
+call receive msg call_success, ubuntu1404-004.student.cs.uwaterloo.ca, 58132
+CALL_SUCCESS
+ADDRESS: ubuntu1404-004.student.cs.uwaterloo.ca
+PORTNUM: 58132
+f4 1 1 0 1 28, 13
+1, 0, 1, 27
+non_exist_file_to_be_printed
+f4 1 1 0 1 28 n o n _ e x i s t _ f i l e _ t o _ b e _ p r i n t e d
+execute f4 1 1 0 1 28 n o n _ e x i s t _ f i l e _ t o _ b e _ p r i n t e d @
+waiting for recv
+execute_fail -1
+return value -1
+
+calling f4 to print an non existed file on the server
+EXPECTED return of f4: some integer other than 0
+ACTUAL return of f4: -1
+
+do you want to terminate? y/n: 
